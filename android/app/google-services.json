@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "797810319528",
+    "project_id": "sahl-edu",
+    "storage_bucket": "sahl-edu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797810319528:android:990239d4c17fa9e37c229d",
+        "android_client_info": {
+          "package_name": "com.example.sahl_edu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "797810319528-f4qaph7q6n2l860nsv8ke5plamihcai1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sahl_edu",
+            "certificate_hash": "43d3dbbc7f942cb16c3279c376147121289c36e4"
+          }
+        },
+        {
+          "client_id": "797810319528-cubvqd511f81lg465jb1p9mout0ifhi1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKryY7m8iaWZnNNldjqQsmECkPeUL8cHg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "797810319528-cubvqd511f81lg465jb1p9mout0ifhi1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "797810319528-9agv068lvm5efdabjbi1rc7c0dpfpor7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sahlEdu"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
