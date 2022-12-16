@@ -1,13 +1,13 @@
 import 'package:sahl_edu/core/enums/user_type.dart';
 
 class SignupBody {
-  UserType? userType;
+  UserType userType;
   String name;
   String email;
   String password;
 
   SignupBody({
-    this.userType,
+    this.userType = UserType.none,
     this.name = "",
     this.email = "",
     this.password = "",
@@ -19,18 +19,18 @@ class SignupBody {
     String? email,
     String? password,
   }) {
-    userType = userType ?? this.userType;
-    name = name ?? this.name;
-    email = email ?? this.email;
-    password = password ?? this.password;
+    this.userType = userType ?? this.userType;
+    this.name = name ?? this.name;
+    this.email = email ?? this.email;
+    this.password = password ?? this.password;
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson(String id) {
     return {
-      "user_type": userType.toString(),
-      "name": name,
-      "email": email,
-      "password": password,
+      "id": id,
+      "user_type": userType.name,
+      "name": name.trim(),
+      "email": email.trim(),
     };
   }
 }

@@ -16,7 +16,7 @@ class CustomTextButton extends StatelessWidget {
     required this.text,
     this.textColor,
     this.fontWeight = FontWeightManager.semiBold,
-    this.textSize = FontSize.s16,
+    this.textSize = FontSize.s14,
     this.padding = AppPadding.p8,
     Key? key,
   }) : super(key: key);

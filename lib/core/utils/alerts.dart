@@ -17,7 +17,7 @@ class Alerts {
       SnackBar(
         duration: duration,
         backgroundColor: forError ? AppColors.red : AppColors.dracula,
-        content: CustomText(message, color: AppColors.white, fontSize: FontSize.s12),
+        content: CustomText(message, color: AppColors.white, fontSize: FontSize.s14),
       ),
     );
   }
@@ -37,7 +37,7 @@ class Alerts {
         margin: EdgeInsets.all(AppPadding.p16.w),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSize.s8.r)),
         action: SnackBarAction(label: actionLabel, onPressed: onActionPressed, textColor: AppColors.white),
-        content: CustomText(message, color: AppColors.white, fontSize: FontSize.s12),
+        content: CustomText(message, color: AppColors.white, fontSize: FontSize.s14),
       ),
     );
   }

@@ -7,8 +7,15 @@ ThemeData lightTheme(BuildContext context) {
   return ThemeData.light().copyWith(
     scaffoldBackgroundColor: AppColors.white,
 
+    /// Appbar theme
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppColors.transparent,
+      elevation: AppSize.s0,
+      iconTheme: IconThemeData(color: AppColors.black),
+    ),
+
     /// Progress indicator theme
-    progressIndicatorTheme: const ProgressIndicatorThemeData(color: AppColors.primary),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(color: AppColors.black),
 
     /// Icon theme
     iconTheme: const IconThemeData(color: AppColors.black),
@@ -16,11 +23,11 @@ ThemeData lightTheme(BuildContext context) {
     /// Text fields
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: AppColors.white,
+      fillColor: AppColors.textField,
       iconColor: AppColors.black,
       hintStyle: TextStyle(
-        color: AppColors.black.withOpacity(0.66),
-        fontSize: FontSize.s14.sp,
+        color: AppColors.black.withOpacity(0.4),
+        fontSize: FontSize.s14,
         fontFamily: FontConstants.fontFamily,
       ),
       contentPadding: EdgeInsets.all(AppPadding.p10.w),

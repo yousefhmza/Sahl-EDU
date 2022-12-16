@@ -6,5 +6,5 @@ class Constants {
   // Firestore collections
   static const String teachers = "Teachers";
   static const String students = "Students";
-  static const String courses = "Courses";
+  static const String exams = "Exams";
 }

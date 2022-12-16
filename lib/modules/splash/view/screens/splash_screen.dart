@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sahl_edu/config/navigation/navigation.dart';
 import 'package:sahl_edu/core/enums/user_type.dart';
 import 'package:sahl_edu/core/utils/alerts.dart';
@@ -27,12 +28,18 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     splashCubit = BlocProvider.of<SplashCubit>(context);
-    authStateStreamSubscription = FirebaseAuth.instance.authStateChanges().listen((user) {
-      if (user == null) {
-        NavigationService.pushReplacementAll(context, Routes.userTypeScreen);
-      } else {
-        splashCubit.getCurrentUser(FirebaseAuth.instance.currentUser!.uid);
-      }
+    Future.delayed(Time.t2000, () async {
+      await Future.wait([
+        precachePicture(ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, AppImages.student), null),
+        precachePicture(ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, AppImages.teacher), null),
+      ]);
+      authStateStreamSubscription = FirebaseAuth.instance.authStateChanges().listen((user) {
+        if (user == null) {
+          NavigationService.pushReplacementAll(context, Routes.userTypeScreen);
+        } else {
+          splashCubit.getCurrentUser(user.uid);
+        }
+      });
     });
   }
 
@@ -75,7 +82,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           child: SizedBox(
                             width: AppSize.s24,
                             height: AppSize.s24,
-                            child: CircularProgressIndicator(color: AppColors.white, strokeWidth: AppSize.s3),
+                            child: CircularProgressIndicator(color: AppColors.primary, strokeWidth: AppSize.s3),
                           ),
                         )
                       : const SizedBox.shrink();

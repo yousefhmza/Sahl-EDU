@@ -2,6 +2,7 @@
 export './widgets/platform_widgets/base_platform_widget.dart';
 export './widgets/platform_widgets/app_dialog.dart';
 export './widgets/platform_widgets/loading_spinner.dart';
+export './widgets/custom_appbar.dart';
 export './widgets/custom_text.dart';
 export './widgets/custom_button.dart';
 export './widgets/custom_icon.dart';

@@ -25,7 +25,7 @@ class CustomTextField extends StatelessWidget {
   final TextInputAction? textInputAction;
 
   const CustomTextField({
-    required this.hintText,
+    this.hintText = "",
     this.prefix,
     this.suffix,
     this.validator,

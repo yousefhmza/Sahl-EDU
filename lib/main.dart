@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:sahl_edu/modules/auth/cubits/login_cubit/login_cubit.dart';
 import 'package:sahl_edu/modules/auth/cubits/password_cubit/password_cubit.dart';
 import 'package:sahl_edu/modules/auth/cubits/signup_cubit/signup_cubit.dart';
 import 'package:sahl_edu/modules/splash/cubits/splash_cubit.dart';
-
 import 'config/navigation/navigation.dart';
 import 'config/theme/light_theme.dart';
 import 'core/services/bloc_observer.dart';
@@ -15,6 +15,7 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await di.init();
   Bloc.observer = MyBlocObserver();
