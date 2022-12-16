@@ -14,6 +14,7 @@ class AppPadding {
 
 class AppSize {
   static const double s0 = 0.0;
+  static const double s1 = 1.0;
   static const double s2 = 2.0;
   static const double s3 = 3.0;
   static const double s4 = 4.0;
@@ -28,6 +29,7 @@ class AppSize {
 }
 
 class Time {
+  static const Duration t150 = Duration(milliseconds: 150);
   static const Duration t2000 = Duration(milliseconds: 2000);
   static const Duration longTime = Duration(minutes: 10);
 }

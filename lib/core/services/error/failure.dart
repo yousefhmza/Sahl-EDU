@@ -1,6 +1,6 @@
 class Failure {
-  final int statusCode;
+  final String code;
   final String message;
 
-  Failure(this.statusCode, this.message);
+  Failure(this.code, this.message);
 }

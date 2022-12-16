@@ -4,7 +4,7 @@ import '../views.dart';
 import '../../resources/resources.dart';
 
 class CustomButton extends StatelessWidget {
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final String text;
   final Color? color;
   final Color? textColor;
@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
 
   const CustomButton({
     Key? key,
-    required this.onPressed,
+    this.onPressed,
     this.text = "",
     this.color = AppColors.black,
     this.textColor,
@@ -38,7 +38,7 @@ class CustomButton extends StatelessWidget {
         type: MaterialType.transparency,
         child: Ink(
           decoration: BoxDecoration(
-            color: color,
+            color: onPressed != null ? color : AppColors.grey.withOpacity(0.5),
             borderRadius: BorderRadius.circular(borderRadius),
           ),
           child: InkWell(

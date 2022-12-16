@@ -1,6 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sahl_edu/modules/auth/cubits/login_cubit/login_cubit.dart';
+import 'package:sahl_edu/modules/auth/cubits/password_cubit/password_cubit.dart';
+import 'package:sahl_edu/modules/auth/cubits/signup_cubit/signup_cubit.dart';
+import 'package:sahl_edu/modules/splash/cubits/splash_cubit.dart';
 
 import 'config/navigation/navigation.dart';
 import 'config/theme/light_theme.dart';
@@ -16,11 +20,16 @@ void main() async {
   Bloc.observer = MyBlocObserver();
 
   runApp(
-      // MultiBlocProvider(
-      //   providers: [],
-      //   child: const MyApp(),
-      // ),
-      const MyApp());
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => di.sl<SplashCubit>()),
+        BlocProvider(create: (_) => di.sl<LoginCubit>()),
+        BlocProvider(create: (_) => di.sl<SignupCubit>()),
+        BlocProvider(create: (_) => di.sl<PasswordCubit>()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

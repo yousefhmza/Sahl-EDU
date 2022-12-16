@@ -1,46 +1,47 @@
-import 'package:dio/dio.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'failure.dart';
 
 class ErrorHandler {
   late Failure failure;
 
   ErrorHandler.handle(Exception error) {
-    if (error is DioError) {
-      failure = _handleDioError(error);
+    if (error is FirebaseException) {
+      failure = _handleFirebaseException(error);
     } else {
       failure = ErrorType.unKnown.getFailure();
     }
   }
 
-  Failure _handleDioError(DioError dioError) {
-    switch (dioError.type) {
-      case DioErrorType.connectTimeout:
-        return ErrorType.connectTimeOut.getFailure();
-      case DioErrorType.sendTimeout:
-        return ErrorType.sendTimeOut.getFailure();
-      case DioErrorType.receiveTimeout:
-        return ErrorType.receiveTimeOut.getFailure();
-      case DioErrorType.response:
-        {
-          if (dioError.response?.statusMessage != null && dioError.response?.statusCode != null) {
-            return Failure(dioError.response!.statusCode!, dioError.response!.data["message"]);
-          } else {
-            return ErrorType.unKnown.getFailure();
-          }
-        }
-      case DioErrorType.cancel:
-        return ErrorType.cancel.getFailure();
-      case DioErrorType.other:
-        return Failure(ResponseCode.unKnown, dioError.message);
+  Failure _handleFirebaseException(FirebaseException firebaseException) {
+    switch (firebaseException.code) {
+      case ResponseCode.wrongPassword:
+        return ErrorType.wrongPassword.getFailure();
+      case ResponseCode.invalidEmail:
+        return ErrorType.invalidEmail.getFailure();
+      case ResponseCode.userDisabled:
+        return ErrorType.userDisabled.getFailure();
+      case ResponseCode.userNotFound:
+        return ErrorType.userNotFound.getFailure();
+      case ResponseCode.emailAlreadyInUse:
+        return ErrorType.emailAlreadyInUse.getFailure();
+      case ResponseCode.operationNotAllowed:
+        return ErrorType.operationNotAllowed.getFailure();
+      case ResponseCode.weakPassword:
+        return ErrorType.weakPassword.getFailure();
+      default:
+        return Failure(ResponseCode.unKnown, ResponseMessage.unKnown);
     }
   }
 }
 
 enum ErrorType {
-  cancel,
-  connectTimeOut,
-  receiveTimeOut,
-  sendTimeOut,
+  wrongPassword,
+  invalidEmail,
+  userDisabled,
+  userNotFound,
+  emailAlreadyInUse,
+  operationNotAllowed,
+  weakPassword,
   noInternetConnection,
   unKnown,
 }
@@ -48,14 +49,20 @@ enum ErrorType {
 extension ErrorTypeException on ErrorType {
   Failure getFailure() {
     switch (this) {
-      case ErrorType.connectTimeOut:
-        return Failure(ResponseCode.connectTimeOut, ResponseMessage.connectTimeOut);
-      case ErrorType.cancel:
-        return Failure(ResponseCode.cancel, ResponseMessage.cancel);
-      case ErrorType.receiveTimeOut:
-        return Failure(ResponseCode.receiveTimeOut, ResponseMessage.receiveTimeOut);
-      case ErrorType.sendTimeOut:
-        return Failure(ResponseCode.sendTimeOut, ResponseMessage.sendTimeOut);
+      case ErrorType.wrongPassword:
+        return Failure(ResponseCode.wrongPassword, ResponseMessage.wrongPassword);
+      case ErrorType.invalidEmail:
+        return Failure(ResponseCode.invalidEmail, ResponseMessage.invalidEmail);
+      case ErrorType.userDisabled:
+        return Failure(ResponseCode.userDisabled, ResponseMessage.userDisabled);
+      case ErrorType.userNotFound:
+        return Failure(ResponseCode.userNotFound, ResponseMessage.userNotFound);
+      case ErrorType.emailAlreadyInUse:
+        return Failure(ResponseCode.emailAlreadyInUse, ResponseMessage.emailAlreadyInUse);
+      case ErrorType.operationNotAllowed:
+        return Failure(ResponseCode.operationNotAllowed, ResponseMessage.operationNotAllowed);
+      case ErrorType.weakPassword:
+        return Failure(ResponseCode.weakPassword, ResponseMessage.weakPassword);
       case ErrorType.noInternetConnection:
         return Failure(ResponseCode.noInternetConnection, ResponseMessage.noInternetConnection);
       case ErrorType.unKnown:
@@ -65,21 +72,25 @@ extension ErrorTypeException on ErrorType {
 }
 
 class ResponseCode {
-  static const int unAuthorized = 401;
-  static const int cancel = -1;
-  static const int connectTimeOut = -2;
-  static const int receiveTimeOut = -3;
-  static const int sendTimeOut = -4;
-  static const int noInternetConnection = -5;
-  static const int unKnown = -6;
+  static const String wrongPassword = "wrong-password";
+  static const String invalidEmail = "invalid-email";
+  static const String userDisabled = "user-disabled";
+  static const String userNotFound = "user-not-found";
+  static const String emailAlreadyInUse = "email-already-in-use";
+  static const String operationNotAllowed = "operation-not-allowed";
+  static const String weakPassword = "weak-password";
+  static const String noInternetConnection = "no-internet";
+  static const String unKnown = "unknown";
 }
 
 class ResponseMessage {
-  static const String cancel = "Request was cancelled, try again.";
-  static const String connectTimeOut = "Time out error, try again.";
-  static const String receiveTimeOut = "Receive time error, try again.";
-  static const String sendTimeOut = "Time out error, try again.";
+  static const String wrongPassword = "Wrong password, please try again.";
+  static const String invalidEmail = "Invalid E-mail, please try again.";
+  static const String userDisabled = "The user corresponding to the given email has been disabled";
+  static const String userNotFound = "There is no user corresponding to the given email.";
+  static const String emailAlreadyInUse = "There already exists an account with the given email address";
+  static const String operationNotAllowed = "E-mail/password accounts are not enabled";
+  static const String weakPassword = "The password is not strong enough";
   static const String noInternetConnection = "Please check your internet connection.";
   static const String unKnown = "Something went wrong, try again.";
 }
-
