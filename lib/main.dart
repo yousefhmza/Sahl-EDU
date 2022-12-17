@@ -6,12 +6,14 @@ import 'package:sahl_edu/modules/auth/cubits/login_cubit/login_cubit.dart';
 import 'package:sahl_edu/modules/auth/cubits/password_cubit/password_cubit.dart';
 import 'package:sahl_edu/modules/auth/cubits/signup_cubit/signup_cubit.dart';
 import 'package:sahl_edu/modules/splash/cubits/splash_cubit.dart';
+import 'package:sahl_edu/modules/student/cubits/questions_cubit/questions_cubit.dart';
 import 'config/navigation/navigation.dart';
 import 'config/theme/light_theme.dart';
 import 'core/services/bloc_observer.dart';
 import 'core/utils/constants.dart';
 import 'di_container.dart' as di;
 import 'firebase_options.dart';
+import 'modules/student/cubits/student_home_cubit/student_home_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +29,8 @@ void main() async {
         BlocProvider(create: (_) => di.sl<LoginCubit>()),
         BlocProvider(create: (_) => di.sl<SignupCubit>()),
         BlocProvider(create: (_) => di.sl<PasswordCubit>()),
+        BlocProvider(create: (_) => di.sl<StudentHomeCubit>()),
+        BlocProvider(create: (_) => di.sl<QuestionsCubit>()),
       ],
       child: const MyApp(),
     ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:sahl_edu/config/navigation/navigation.dart';
 import 'package:sahl_edu/core/utils/alerts.dart';
 import 'package:sahl_edu/core/utils/globals.dart';
-
 import 'package:sahl_edu/modules/auth/cubits/signup_cubit/signup_cubit.dart';
 import '../../../../core/enums/user_type.dart';
 import '../../../../core/resources/resources.dart';
@@ -76,8 +76,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       if (state is SignupSuccessState) {
                         NavigationService.pushReplacementAll(
                           context,
-                          currentUser!.userType == UserType.teacher
-                              ? Routes.teacherHomeScreen
+                          currentUser!.userType == UserType.admin
+                              ? Routes.adminHomeScreen
                               : Routes.studentHomeScreen,
                         );
                       }

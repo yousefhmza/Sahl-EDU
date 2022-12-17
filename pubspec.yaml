@@ -16,6 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   fluttertoast: ^8.1.2
   flutter_svg: ^1.1.6
+  auto_size_text: ^3.0.0
 
   # DI & State management
   get_it: ^7.2.0

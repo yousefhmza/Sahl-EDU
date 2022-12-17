@@ -20,15 +20,15 @@ class SignupRepository {
     if (hasConnection) {
       try {
         final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: signupBody.email.trim(),
+          email: signupBody.email.trim().toLowerCase(),
           password: signupBody.password.trim(),
         );
         await FirebaseFirestore.instance
-            .collection(signupBody.userType == UserType.teacher ? Constants.teachers : Constants.students)
+            .collection(signupBody.userType == UserType.admin ? Constants.admins : Constants.students)
             .doc(credential.user!.uid)
             .set(signupBody.toJson(credential.user!.uid));
         return Right(UserModel.fromJson(signupBody.toJson(credential.user!.uid)));
-      } on FirebaseAuthException catch (e) {
+      } on Exception catch (e) {
         return Left(ErrorHandler.handle(e).failure);
       }
     } else {

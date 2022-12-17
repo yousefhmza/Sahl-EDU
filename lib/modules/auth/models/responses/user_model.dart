@@ -23,8 +23,8 @@ class UserModel {
 
   static UserType _getUserType(String userType) {
     switch (userType) {
-      case "teacher":
-        return UserType.teacher;
+      case "admin":
+        return UserType.admin;
       case "student":
         return UserType.student;
       default:

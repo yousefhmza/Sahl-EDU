@@ -9,6 +9,9 @@ import 'package:sahl_edu/core/view/views.dart';
 import 'package:sahl_edu/modules/auth/cubits/login_cubit/login_cubit.dart';
 import 'package:sahl_edu/modules/auth/view/widgets/bg_painting.dart';
 
+import '../../../../core/utils/alerts.dart';
+import '../../../../core/utils/globals.dart';
+
 class LoginScreen extends StatefulWidget {
   final UserType userType;
 
@@ -62,10 +65,25 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   CustomTextButton(text: AppStrings.forgetPassword, onPressed: () {}),
                   const VerticalSpace(AppSize.s16),
-                  CustomButton(
-                    width: double.infinity,
-                    text: AppStrings.login,
-                    onPressed: () {},
+                  BlocConsumer<LoginCubit, LoginStates>(
+                    listener: (context, state) {
+                      if (state is LoginFailureState) Alerts.showSnackBar(context, state.failure.message);
+                      if (state is LoginSuccessState) {
+                        NavigationService.pushReplacementAll(
+                          context,
+                          currentUser!.userType == UserType.admin ? Routes.adminHomeScreen : Routes.studentHomeScreen,
+                        );
+                      }
+                    },
+                    builder: (context, state) => state is LoginLoadingState
+                        ? const LoadingSpinner()
+                        : CustomButton(
+                            width: double.infinity,
+                            text: AppStrings.login,
+                            onPressed: () {
+                              if (formKey.currentState!.validate()) loginCubit.login();
+                            },
+                          ),
                   ),
                   const VerticalSpace(AppSize.s16),
                   Row(

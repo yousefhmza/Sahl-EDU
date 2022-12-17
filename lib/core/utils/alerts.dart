@@ -56,14 +56,14 @@ class Alerts {
     );
   }
 
-  static void showAppDialog(
+  static Future<T?> showAppDialog<T>(
     BuildContext context, {
     required String title,
     required VoidCallback onConfirm,
     required String confirmText,
     String? description,
   }) {
-    showDialog(
+    return showDialog<T>(
       context: context,
       builder: (context) => AppDialog(
         title: title,

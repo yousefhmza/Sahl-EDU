@@ -34,10 +34,10 @@ class UserTypeScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           UserCard(
-                            isChosen: userType == UserType.teacher,
-                            text: AppStrings.teacher,
-                            onTap: () => setState(() => userType = UserType.teacher),
-                            img: AppImages.teacher,
+                            isChosen: userType == UserType.admin,
+                            text: AppStrings.admin,
+                            onTap: () => setState(() => userType = UserType.admin),
+                            img: AppImages.admin,
                           ),
                           UserCard(
                             isChosen: userType == UserType.student,

@@ -1,1 +1,1 @@
-enum UserType { teacher, student, none }
+enum UserType { admin, student, none }

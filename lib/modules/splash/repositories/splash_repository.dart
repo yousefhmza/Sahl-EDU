@@ -17,7 +17,7 @@ class SplashRepository {
     if (hasConnection) {
       try {
         DocumentSnapshot<Map<String, dynamic>> user;
-        user = await FirebaseFirestore.instance.collection(Constants.teachers).doc(id).get();
+        user = await FirebaseFirestore.instance.collection(Constants.admins).doc(id).get();
         if (!user.exists) user = await FirebaseFirestore.instance.collection(Constants.students).doc(id).get();
         return Right(UserModel.fromJson(user.data()!));
       } on FirebaseException catch (e) {

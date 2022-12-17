@@ -30,8 +30,9 @@ class _SplashScreenState extends State<SplashScreen> {
     splashCubit = BlocProvider.of<SplashCubit>(context);
     Future.delayed(Time.t2000, () async {
       await Future.wait([
+        precachePicture(ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, AppImages.error), null),
         precachePicture(ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, AppImages.student), null),
-        precachePicture(ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, AppImages.teacher), null),
+        precachePicture(ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, AppImages.admin), null),
       ]);
       authStateStreamSubscription = FirebaseAuth.instance.authStateChanges().listen((user) {
         if (user == null) {
@@ -71,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   if (state is GetCurrentUserSuccessState) {
                     NavigationService.pushReplacementAll(
                       context,
-                      currentUser!.userType == UserType.teacher ? Routes.teacherHomeScreen : Routes.studentHomeScreen,
+                      currentUser!.userType == UserType.admin ? Routes.adminHomeScreen : Routes.studentHomeScreen,
                     );
                   }
                 },

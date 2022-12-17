@@ -3,6 +3,8 @@ class Routes {
   static const String userTypeScreen = "/userTypeScreen";
   static const String loginScreen = "/loginScreen";
   static const String signupScreen = "/signupScreen";
-  static const String teacherHomeScreen = "/teacherHomeScreen";
+  static const String adminHomeScreen = "/adminHomeScreen";
   static const String studentHomeScreen = "/studentHomeScreen";
+  static const String questionsScreen = "/questionsScreen";
+  static const String resultsScreen = "/resultsScreen";
 }

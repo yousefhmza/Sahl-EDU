@@ -30,6 +30,7 @@ class AppSize {
 
 class Time {
   static const Duration t150 = Duration(milliseconds: 150);
+  static const Duration t300 = Duration(milliseconds: 300);
   static const Duration t2000 = Duration(milliseconds: 2000);
   static const Duration longTime = Duration(minutes: 10);
 }
