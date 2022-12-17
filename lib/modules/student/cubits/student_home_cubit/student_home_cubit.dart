@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sahl_edu/core/services/error/failure.dart';
 
-import '../../models/exam_model.dart';
+import '../../../../core/models/exam_model.dart';
 import '../../repositories/student_home_repository.dart';
 
 part 'student_home_states.dart';

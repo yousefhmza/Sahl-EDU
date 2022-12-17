@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sahl_edu/config/navigation/navigation.dart';
 import '../../../../core/resources/resources.dart';
 import '../../../../core/view/views.dart';
-import '../../models/exam_model.dart';
+import '../../../../core/models/exam_model.dart';
 
 class ExamItem extends StatelessWidget {
   final Exam exam;

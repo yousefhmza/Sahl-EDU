@@ -34,4 +34,10 @@ class AppStrings {
   static const String wrongAnswer = "Wrong answer !!";
   static const String seeResults = "See results";
   static const String sureQuittingExam = "Are you sure you want to quit this exam ?";
+
+  // Admin
+  static const String myExams = "My exams";
+  static const String delete = "Delete";
+  static const String examDeletedSuccessfully = "Exam is deleted successfully";
+  static const String sureDeletingExam = "Are you sure you want to delete this exam ?";
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sahl_edu/modules/student/cubits/questions_cubit/questions_cubit.dart';
-import 'package:sahl_edu/modules/student/models/exam_model.dart';
+import 'package:sahl_edu/core/models/exam_model.dart';
 import 'package:sahl_edu/modules/student/view/widgets/question_item.dart';
 
 import '../../../../config/navigation/navigation_services.dart';

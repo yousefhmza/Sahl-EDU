@@ -5,7 +5,7 @@ import 'package:sahl_edu/core/services/error/failure.dart';
 import 'package:sahl_edu/core/utils/constants.dart';
 
 import '../../../core/services/network/network_info.dart';
-import '../models/exam_model.dart';
+import '../../../core/models/exam_model.dart';
 
 class StudentHomeRepository {
   final NetworkInfo _networkInfo;

@@ -3,6 +3,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:sahl_edu/modules/admin/cubits/admin_home_cubit/admin_home_cubit.dart';
+import 'package:sahl_edu/modules/admin/repositories/admin_home_repository.dart';
 import 'package:sahl_edu/modules/student/cubits/questions_cubit/questions_cubit.dart';
 import 'package:sahl_edu/modules/student/repositories/questions_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -46,6 +48,7 @@ Future<void> init() async {
   sl.registerLazySingleton<PasswordRepository>(() => PasswordRepository(sl<NetworkInfo>()));
   sl.registerLazySingleton<StudentHomeRepository>(() => StudentHomeRepository(sl<NetworkInfo>()));
   sl.registerLazySingleton<QuestionsRepository>(() => QuestionsRepository(sl<NetworkInfo>()));
+  sl.registerLazySingleton<AdminHomeRepository>(() => AdminHomeRepository(sl<NetworkInfo>()));
 
   // Cubits
   sl.registerFactory<SplashCubit>(() => SplashCubit(sl<SplashRepository>()));
@@ -54,4 +57,5 @@ Future<void> init() async {
   sl.registerFactory<PasswordCubit>(() => PasswordCubit(sl<PasswordRepository>()));
   sl.registerFactory<StudentHomeCubit>(() => StudentHomeCubit(sl<StudentHomeRepository>()));
   sl.registerFactory<QuestionsCubit>(() => QuestionsCubit(sl<QuestionsRepository>()));
+  sl.registerFactory<AdminHomeCubit>(() => AdminHomeCubit(sl<AdminHomeRepository>()));
 }
