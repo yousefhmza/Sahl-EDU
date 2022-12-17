@@ -13,6 +13,7 @@ class QuestionsCubit extends Cubit<QuestionsStates> {
 
   QuestionsCubit(this._questionsRepository) : super(QuestionsInitialState());
 
+  List<Question> questions = [];
   late PageController pageController;
   int? currentQuestionIndex;
   int? selectedAnswerIndex;
@@ -48,11 +49,15 @@ class QuestionsCubit extends Cubit<QuestionsStates> {
     final result = await _questionsRepository.getQuestions(examId);
     result.fold(
       (failure) => emit(GetQuestionsFailureState(failure)),
-      (questions) => emit(GetQuestionsSuccessState(questions)),
+      (questions) {
+        this.questions = questions;
+        emit(GetQuestionsSuccessState(questions));
+      },
     );
   }
 
   void resetValues() {
+    questions.clear();
     pageController = PageController();
     currentQuestionIndex = 0;
     selectedAnswerIndex = null;

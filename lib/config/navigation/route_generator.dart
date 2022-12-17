@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:sahl_edu/modules/auth/view/screens/login_screen.dart';
+import 'package:sahl_edu/modules/auth/view/screens/reset_password_screen.dart';
 import 'package:sahl_edu/modules/auth/view/screens/signup_screen.dart';
 import 'package:sahl_edu/modules/auth/view/screens/user_type_screen.dart';
 import 'package:sahl_edu/modules/student/view/screens/results_screen.dart';
@@ -25,6 +26,8 @@ class RouteGenerator {
         return platformPageRoute(LoginScreen(userType: arguments!["user_type"]));
       case Routes.signupScreen:
         return platformPageRoute(SignupScreen(userType: arguments!["user_type"]));
+      case Routes.resetPasswordScreen:
+        return platformPageRoute(const ResetPasswordScreen());
       case Routes.studentHomeScreen:
         return platformPageRoute(const StudentHomeScreen());
       case Routes.questionsScreen:

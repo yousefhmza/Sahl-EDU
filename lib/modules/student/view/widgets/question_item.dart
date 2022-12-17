@@ -20,20 +20,6 @@ class QuestionItem extends StatelessWidget {
       padding: const EdgeInsets.all(AppPadding.p16),
       child: Column(
         children: [
-          BlocBuilder<QuestionsCubit, QuestionsStates>(
-            builder: (context, state) => Align(
-              alignment: AlignmentDirectional.centerEnd,
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
-                decoration: const ShapeDecoration(color: AppColors.black, shape: StadiumBorder()),
-                child: CustomText(
-                  "${questionsCubit.currentQuestionIndex! + 1}/${lastIndex + 1}",
-                  color: AppColors.white,
-                ),
-              ),
-            ),
-          ),
-          const VerticalSpace(AppSize.s16),
           CustomText(
             question.question,
             fontWeight: FontWeightManager.semiBold,

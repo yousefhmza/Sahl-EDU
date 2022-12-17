@@ -23,6 +23,9 @@ class AppStrings {
   static const String forgetPassword = "Forgot password ?";
   static const String haveNoAccount = "Don't have an account ?";
   static const String signup = "Signup";
+  static const String passwordEmailSent = "You will receive an E-Mail that will enable you reset your password.";
+  static const String resetPassword = "Reset password";
+  static const String resetPasswordDesc = "Enter the email that you will receive the new password on.";
 
   // Student
   static const String exams = "Exams";

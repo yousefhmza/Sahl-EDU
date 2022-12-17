@@ -63,7 +63,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     onChanged: (value) => loginCubit.loginBody.copyWith(password: value),
                     prefix: const CustomIcon(Icons.lock_outline),
                   ),
-                  CustomTextButton(text: AppStrings.forgetPassword, onPressed: () {}),
+                  CustomTextButton(
+                    text: AppStrings.forgetPassword,
+                    onPressed: () => NavigationService.push(context, Routes.resetPasswordScreen),
+                  ),
                   const VerticalSpace(AppSize.s16),
                   BlocConsumer<LoginCubit, LoginStates>(
                     listener: (context, state) {

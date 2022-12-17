@@ -7,4 +7,5 @@ class Routes {
   static const String studentHomeScreen = "/studentHomeScreen";
   static const String questionsScreen = "/questionsScreen";
   static const String resultsScreen = "/resultsScreen";
+  static const String resetPasswordScreen = "/resetPasswordScreen";
 }

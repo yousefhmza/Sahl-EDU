@@ -45,6 +45,21 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         appBar: CustomAppbar(
           centerTitle: true,
           title: CustomText(widget.exam.name, fontWeight: FontWeightManager.bold, fontSize: FontSize.s16),
+          actions: [
+            BlocBuilder<QuestionsCubit, QuestionsStates>(
+              builder: (context, state) => Center(
+                child: Container(
+                  margin: const EdgeInsetsDirectional.only(end: AppPadding.p16),
+                  padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
+                  decoration: const ShapeDecoration(color: AppColors.black, shape: StadiumBorder()),
+                  child: CustomText(
+                    "${questionsCubit.currentQuestionIndex! + 1}/${questionsCubit.questions.length}",
+                    color: AppColors.white,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
         body: BlocBuilder<QuestionsCubit, QuestionsStates>(
           buildWhen: (prevState, state) =>
