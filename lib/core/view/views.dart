@@ -20,3 +20,4 @@ export './components/app_bottom_sheet.dart';
 export './components/logo.dart';
 export './components/home_drawer.dart';
 export './components/error_component.dart';
+export './components/pick_image_sheet_component.dart';

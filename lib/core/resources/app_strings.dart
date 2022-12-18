@@ -7,6 +7,9 @@ class AppStrings {
   static const String logout = "Logout";
   static const String loggedOutSuccessfully = "You logged out successfully";
   static const String profile = "Profile";
+  static const String gallery = "Gallery";
+  static const String camera = "Camera";
+  static const String errorOccurred = "An error occurred !!";
 
   // Auth
   static const String continueAs = "Continue as : ";
@@ -33,11 +36,22 @@ class AppStrings {
   static const String correctAnswer = "Correct answer";
   static const String wrongAnswer = "Wrong answer !!";
   static const String seeResults = "See results";
+  static const String results = "Results";
+  static const String goHome = "Return to home screen";
+  static const String yourScore = "Your score is :";
   static const String sureQuittingExam = "Are you sure you want to quit this exam ?";
 
   // Admin
   static const String myExams = "My exams";
   static const String delete = "Delete";
   static const String examDeletedSuccessfully = "Exam is deleted successfully";
+  static const String examAddedSuccessfully = "Exam is added successfully";
   static const String sureDeletingExam = "Are you sure you want to delete this exam ?";
+  static const String addExam = "Add exam";
+  static const String examName = "Exam name";
+  static const String enterExamName = "Enter exam name";
+  static const String uploadExamImage = "Upload exam image";
+  static const String stepOneValidator = "Please type exam name and choose its image !!";
+  static const String exam = "Exam";
+  static const String questions = "Questions";
 }

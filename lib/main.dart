@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sahl_edu/modules/admin/cubits/add_exam_cubit/add_exam_cubit.dart';
 import 'package:sahl_edu/modules/admin/cubits/admin_home_cubit/admin_home_cubit.dart';
 
 import 'package:sahl_edu/modules/auth/cubits/login_cubit/login_cubit.dart';
@@ -33,6 +34,7 @@ void main() async {
         BlocProvider(create: (_) => di.sl<StudentHomeCubit>()),
         BlocProvider(create: (_) => di.sl<QuestionsCubit>()),
         BlocProvider(create: (_) => di.sl<AdminHomeCubit>()),
+        BlocProvider(create: (_) => di.sl<AddExamCubit>()),
       ],
       child: const MyApp(),
     ),

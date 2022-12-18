@@ -31,4 +31,13 @@ class UserModel {
         return UserType.none;
     }
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "name": name,
+      "email": email,
+      "user_type": userType.name,
+    };
+  }
 }
