@@ -4,6 +4,7 @@ import 'package:sahl_edu/core/resources/resources.dart';
 
 import 'package:sahl_edu/core/services/network/network_info.dart';
 import 'package:sahl_edu/core/utils/globals.dart';
+import 'package:sahl_edu/modules/admin/models/response/score_model.dart';
 import '../../../core/models/exam_model.dart';
 import '../../../core/services/error/error_handler.dart';
 import '../../../core/services/error/failure.dart';
@@ -37,6 +38,21 @@ class AdminHomeRepository {
       try {
         await FirebaseFirestore.instance.collection(Constants.exams).doc(id).delete();
         return const Right(AppStrings.examDeletedSuccessfully);
+      } on Exception catch (e) {
+        return Left(ErrorHandler.handle(e).failure);
+      }
+    } else {
+      return Left(ErrorType.noInternetConnection.getFailure());
+    }
+  }
+
+  Future<Either<Failure, List<ScoreModel>>> getScores(String examId) async {
+    final bool hasConnection = await _networkInfo.hasConnection;
+    if (hasConnection) {
+      try {
+        final scores =
+            await FirebaseFirestore.instance.collection(Constants.exams).doc(examId).collection(Constants.scores).get();
+        return Right(List<ScoreModel>.from(scores.docs.map((score) => ScoreModel.fromJson(score.data()))));
       } on Exception catch (e) {
         return Left(ErrorHandler.handle(e).failure);
       }

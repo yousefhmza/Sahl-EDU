@@ -37,3 +37,17 @@ class DeleteExamFailureState extends AdminHomeStates {
 
   DeleteExamFailureState(this.failure, this.examId);
 }
+
+class GetScoresLoadingState extends AdminHomeStates {}
+
+class GetScoresSuccessState extends AdminHomeStates {
+  List<ScoreModel> scores;
+
+  GetScoresSuccessState(this.scores);
+}
+
+class GetScoresFailureState extends AdminHomeStates {
+  final Failure failure;
+
+  GetScoresFailureState(this.failure);
+}

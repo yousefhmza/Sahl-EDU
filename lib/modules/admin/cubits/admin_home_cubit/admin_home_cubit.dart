@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sahl_edu/modules/admin/models/response/score_model.dart';
 
 import '../../../../core/models/exam_model.dart';
 import '../../../../core/services/error/failure.dart';
@@ -29,6 +30,15 @@ class AdminHomeCubit extends Cubit<AdminHomeStates> {
         getMyExams();
         emit(DeleteExamSuccessState(message, id));
       },
+    );
+  }
+
+  Future<void> getScores(String examId) async {
+    emit(GetScoresLoadingState());
+    final result = await _adminHomeRepository.getScores(examId);
+    result.fold(
+      (failure) => emit(GetScoresFailureState(failure)),
+      (scores) => emit(GetScoresSuccessState(scores)),
     );
   }
 }

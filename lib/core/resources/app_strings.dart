@@ -70,4 +70,6 @@ class AppStrings {
   static const String goBack = "Return";
   static const String surePoppingExamScreen =
       "Are you sure you want to leave this screen ? Leaving will erase any data you've added .";
+  static const String scores = "Scores";
+
 }
