@@ -29,6 +29,13 @@ class AppStrings {
   static const String passwordEmailSent = "You will receive an E-Mail that will enable you reset your password.";
   static const String resetPassword = "Reset password";
   static const String resetPasswordDesc = "Enter the email that you will receive the new password on.";
+  static const String changePasswordDesc = "Enter your current password and the new password";
+  static const String passwordUpdatedSuccessfully = "Password updated successfully";
+  static const String changePassword = "Change password";
+  static const String oldPassword = "Old password";
+  static const String newPassword = "New password";
+  static const String confirmPassword = "Confirm password";
+  static const String passwordsNotMatching = "Passwords not matching";
 
   // Student
   static const String exams = "Exams";
@@ -71,5 +78,4 @@ class AppStrings {
   static const String surePoppingExamScreen =
       "Are you sure you want to leave this screen ? Leaving will erase any data you've added .";
   static const String scores = "Scores";
-
 }

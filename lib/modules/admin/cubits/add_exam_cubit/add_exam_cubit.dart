@@ -37,14 +37,6 @@ class AddExamCubit extends Cubit<AddExamStates> {
     emit(SetValuesState());
   }
 
-  void removeAnswer(int questionIndex, int answerIndex) {
-    print(answerIndex);
-    print(addExamBody.questions[questionIndex].answers);
-    print("*******************");
-    addExamBody.questions[questionIndex].answers.removeAt(answerIndex);
-    emit(SetValuesState());
-  }
-
   void resetValues() {
     addExamBody = AddExamBody(questions: []);
     currentStep = 0;

@@ -49,18 +49,7 @@ class QuestionBodyItem extends StatelessWidget {
                           const HorizontalSpace(AppSize.s4),
                           Expanded(
                             child: CustomTextField(
-                              key: ValueKey(i),
                               onChanged: (value) => questionBody.answers[i] = value,
-                              suffix: InkWell(
-                                onTap: () {
-                                  if (questionBody.answers.length < 3) {
-                                    Alerts.showToast(AppStrings.cantDeleteAnswer);
-                                    return;
-                                  }
-                                  BlocProvider.of<AddExamCubit>(context).removeAnswer(index, i);
-                                },
-                                child: const CustomIcon(Icons.delete),
-                              ),
                             ),
                           ),
                         ],

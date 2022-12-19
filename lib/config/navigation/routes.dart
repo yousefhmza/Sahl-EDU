@@ -10,4 +10,5 @@ class Routes {
   static const String resetPasswordScreen = "/resetPasswordScreen";
   static const String addExamScreen = "/addExamScreen";
   static const String scoresScreen = "/scoresScreen";
+  static const String changePasswordScreen = "/changePasswordScreen";
 }

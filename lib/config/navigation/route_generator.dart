@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sahl_edu/modules/admin/view/screens/add_exam_screen.dart';
 import 'package:sahl_edu/modules/admin/view/screens/scores_screen.dart';
+import 'package:sahl_edu/modules/auth/view/screens/change_password_screen.dart';
 
 import 'package:sahl_edu/modules/auth/view/screens/login_screen.dart';
 import 'package:sahl_edu/modules/auth/view/screens/reset_password_screen.dart';
@@ -38,6 +39,8 @@ class RouteGenerator {
         return platformPageRoute(ResultsScreen(totalDegree: arguments!["total_degree"], examId: arguments["exam_id"]));
       case Routes.addExamScreen:
         return platformPageRoute(const AddExamScreen());
+      case Routes.changePasswordScreen:
+        return platformPageRoute( ChangePasswordScreen());
       case Routes.scoresScreen:
         return platformPageRoute(ScoresScreen(examId: arguments!["exam_id"]));
       default:

@@ -39,11 +39,11 @@ class HomeDrawer extends StatelessWidget {
               const Divider(),
               const VerticalSpace(AppSize.s8),
               ListTile(
-                onTap: () => BlocProvider.of<LoginCubit>(context).logout(),
+                onTap: () => NavigationService.push(context, Routes.changePasswordScreen),
                 contentPadding: EdgeInsets.zero,
                 horizontalTitleGap: AppSize.s0,
-                leading: const CustomIcon(Icons.person),
-                title: const CustomText(AppStrings.profile),
+                leading: const CustomIcon(Icons.lock),
+                title: const CustomText(AppStrings.changePassword),
               ),
               ListTile(
                 onTap: () => BlocProvider.of<LoginCubit>(context).logout(),

@@ -23,4 +23,21 @@ class PasswordRepository {
       return Left(ErrorType.noInternetConnection.getFailure());
     }
   }
+
+  Future<Either<Failure, String>> updatePassword(String oldPassword, String newPassword) async {
+    final bool hasConnection = await _networkInfo.hasConnection;
+    if (hasConnection) {
+      try {
+        final user = FirebaseAuth.instance.currentUser!;
+        final credential = EmailAuthProvider.credential(email: user.email!, password: oldPassword);
+        await user.reauthenticateWithCredential(credential);
+        await user.updatePassword(newPassword);
+        return const Right(AppStrings.passwordUpdatedSuccessfully);
+      } on Exception catch (e) {
+        return Left(ErrorHandler.handle(e).failure);
+      }
+    } else {
+      return Left(ErrorType.noInternetConnection.getFailure());
+    }
+  }
 }

@@ -10,12 +10,28 @@ class PasswordCubit extends Cubit<PasswordStates> {
 
   PasswordCubit(this._passwordRepository) : super(PasswordInitialState());
 
+  bool isPasswordVisible = false;
+
+  void setPasswordVisibility() {
+    isPasswordVisible = !isPasswordVisible;
+    emit(SetPasswordVisibilityState());
+  }
+
   Future<void> resetPassword(String email) async {
     emit(ResetPasswordLoadingState());
     final result = await _passwordRepository.resetPassword(email);
     result.fold(
       (failure) => emit(ResetPasswordFailureState(failure)),
       (message) => emit(ResetPasswordSuccessState(message)),
+    );
+  }
+
+  Future<void> changePassword(String oldPassword, String newPassword) async {
+    emit(UpdatePasswordLoadingState());
+    final result = await _passwordRepository.updatePassword(oldPassword, newPassword);
+    result.fold(
+      (failure) => emit(UpdatePasswordFailureState(failure)),
+      (message) => emit(UpdatePasswordSuccessState(message)),
     );
   }
 }
