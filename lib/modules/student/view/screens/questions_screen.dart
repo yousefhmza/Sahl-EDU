@@ -74,7 +74,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 controller: questionsCubit.pageController,
                 physics: const NeverScrollableScrollPhysics(),
                 onPageChanged: questionsCubit.setQuestionIndex,
-                itemBuilder: (context, index) => QuestionItem(state.questions[index], state.questions.length - 1),
+                itemBuilder: (context, index) => QuestionItem(
+                  state.questions[index],
+                  state.questions.length - 1,
+                  widget.exam.id,
+                ),
               );
             }
             if (state is GetQuestionsFailureState) {

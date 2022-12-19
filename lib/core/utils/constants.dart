@@ -8,4 +8,5 @@ class Constants {
   static const String students = "Students";
   static const String exams = "Exams";
   static const String questions = "Questions";
+  static const String scores = "Scores";
 }

@@ -56,6 +56,15 @@ class QuestionsCubit extends Cubit<QuestionsStates> {
     );
   }
 
+  Future<void> saveScore(String examId, int totalDegree) async {
+    emit(SaveScoreLoadingState());
+    final result = await _questionsRepository.saveScore(examId: examId, score: degree, totalDegree: totalDegree);
+    result.fold(
+      (failure) => emit(SaveScoreFailureState(failure)),
+      (message) => emit(SaveScoreSuccessState(message)),
+    );
+  }
+
   void resetValues() {
     questions.clear();
     pageController = PageController();

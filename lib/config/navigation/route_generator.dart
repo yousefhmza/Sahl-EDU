@@ -34,7 +34,7 @@ class RouteGenerator {
       case Routes.questionsScreen:
         return platformPageRoute(QuestionsScreen(exam: arguments!["exam"]));
       case Routes.resultsScreen:
-        return platformPageRoute(ResultsScreen(totalDegree: arguments!["total_degree"]));
+        return platformPageRoute(ResultsScreen(totalDegree: arguments!["total_degree"], examId: arguments["exam_id"]));
       case Routes.addExamScreen:
         return platformPageRoute(const AddExamScreen());
       default:

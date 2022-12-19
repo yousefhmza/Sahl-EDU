@@ -40,6 +40,8 @@ class AppStrings {
   static const String goHome = "Return to home screen";
   static const String yourScore = "Your score is :";
   static const String sureQuittingExam = "Are you sure you want to quit this exam ?";
+  static const String scoreSaved =
+      "Your score is saved successfully, you can retake this exam any time to improve this score";
 
   // Admin
   static const String myExams = "My exams";
@@ -66,5 +68,6 @@ class AppStrings {
   static const String pleaseAddAnswer = "Please add answer in the last field first before adding new one";
   static const String cantDeleteAnswer = "You can't delete the only available two answers";
   static const String goBack = "Return";
-  static const String surePoppingExamScreen = "Are you sure you want to leave this screen ? Leaving will erase any data you've added .";
+  static const String surePoppingExamScreen =
+      "Are you sure you want to leave this screen ? Leaving will erase any data you've added .";
 }

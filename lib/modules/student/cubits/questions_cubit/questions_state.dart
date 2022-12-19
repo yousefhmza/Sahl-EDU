@@ -19,3 +19,17 @@ class GetQuestionsSuccessState extends QuestionsStates {
 
   GetQuestionsSuccessState(this.questions);
 }
+
+class SaveScoreLoadingState extends QuestionsStates {}
+
+class SaveScoreFailureState extends QuestionsStates {
+  final Failure failure;
+
+  SaveScoreFailureState(this.failure);
+}
+
+class SaveScoreSuccessState extends QuestionsStates {
+  final String message;
+
+  SaveScoreSuccessState(this.message);
+}

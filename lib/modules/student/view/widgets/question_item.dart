@@ -10,8 +10,9 @@ import 'package:sahl_edu/modules/student/models/question_model.dart';
 class QuestionItem extends StatelessWidget {
   final Question question;
   final int lastIndex;
+  final String examId;
 
-  const QuestionItem(this.question, this.lastIndex, {Key? key}) : super(key: key);
+  const QuestionItem(this.question, this.lastIndex, this.examId, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +85,7 @@ class QuestionItem extends StatelessWidget {
                         onPressed: () => NavigationService.pushReplacement(
                           context,
                           Routes.resultsScreen,
-                          arguments: {"total_degree": lastIndex + 1},
+                          arguments: {"total_degree": lastIndex + 1, "exam_id": examId},
                         ),
                       )
                     : Row(
