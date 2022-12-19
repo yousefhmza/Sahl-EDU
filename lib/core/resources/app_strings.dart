@@ -65,4 +65,6 @@ class AppStrings {
   static const String pleaseAddAnswers = "Please add more than one answer for the last item !!";
   static const String pleaseAddAnswer = "Please add answer in the last field first before adding new one";
   static const String cantDeleteAnswer = "You can't delete the only available two answers";
+  static const String goBack = "Return";
+  static const String surePoppingExamScreen = "Are you sure you want to leave this screen ? Leaving will erase any data you've added .";
 }
