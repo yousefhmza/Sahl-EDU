@@ -37,7 +37,6 @@ class ResultsScreen extends StatelessWidget {
             const VerticalSpace(AppSize.s16),
             BlocConsumer<QuestionsCubit, QuestionsStates>(
               listener: (context, state) {
-                if (state is SaveScoreSuccessState) Alerts.showToast(state.message);
                 if (state is SaveScoreFailureState) {
                   Alerts.showActionSnackBar(
                     context,

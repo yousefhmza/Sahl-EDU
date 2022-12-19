@@ -28,8 +28,4 @@ class SaveScoreFailureState extends QuestionsStates {
   SaveScoreFailureState(this.failure);
 }
 
-class SaveScoreSuccessState extends QuestionsStates {
-  final String message;
-
-  SaveScoreSuccessState(this.message);
-}
+class SaveScoreSuccessState extends QuestionsStates {}

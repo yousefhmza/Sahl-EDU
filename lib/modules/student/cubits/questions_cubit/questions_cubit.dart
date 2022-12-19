@@ -61,7 +61,7 @@ class QuestionsCubit extends Cubit<QuestionsStates> {
     final result = await _questionsRepository.saveScore(examId: examId, score: degree, totalDegree: totalDegree);
     result.fold(
       (failure) => emit(SaveScoreFailureState(failure)),
-      (message) => emit(SaveScoreSuccessState(message)),
+      (message) => emit(SaveScoreSuccessState()),
     );
   }
 

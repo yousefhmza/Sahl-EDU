@@ -15,10 +15,47 @@ class QuestionBodyItem extends StatelessWidget {
 
   const QuestionBodyItem({required this.questionBody, required this.index, Key? key}) : super(key: key);
 
+// ...List.generate(
+// addExamCubit.addExamBody.questions.length + 1,
+// (index) => index == addExamCubit.addExamBody.questions.length
+// ? AddQuestionButton(
+// lastQuestion: index == 0 ? null : addExamCubit.addExamBody.questions[index - 1],
+// )
+// : QuestionBodyItem(
+// questionBody: addExamCubit.addExamBody.questions[index],
+// index: index,
+// ),
+// ),
+// const VerticalSpace(AppSize.s24),
+// BlocConsumer<AddExamCubit, AddExamStates>(
+// listener: (context, state) {
+// if (state is AddExamFailureState) Alerts.showSnackBar(context, state.failure.message);
+// if (state is AddExamSuccessState) {
+// BlocProvider.of<AdminHomeCubit>(context).getMyExams();
+// Alerts.showSnackBar(context, state.message);
+// NavigationService.goBack(context);
+// }
+// },
+// builder: (context, state) => state is AddExamLoadingState
+// ? const LoadingSpinner()
+// : CustomButton(
+// text: AppStrings.confirm,
+// color: AppColors.primary,
+// width: double.infinity,
+// onPressed: () {
+// if (addExamCubit.addExamBody.questions.isEmpty) {
+// Alerts.showToast(AppStrings.pleaseAddQuestions);
+// return;
+// }
+// addExamCubit.addExam();
+// },
+// ),
+// )
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(AppPadding.p8),
+      margin:const  EdgeInsets.only(bottom: AppPadding.p8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppSize.s16),
         border: Border.all(color: AppColors.grey),
