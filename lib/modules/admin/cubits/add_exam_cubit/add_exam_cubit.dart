@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sahl_edu/modules/admin/models/request/add_exam_body.dart';
+import 'package:sahl_edu/modules/admin/models/request/question_body.dart';
 
 import '../../../../core/services/error/failure.dart';
 import '../../repositories/add_exam_repository.dart';
@@ -14,7 +15,7 @@ class AddExamCubit extends Cubit<AddExamStates> {
   AddExamCubit(this._addExamRepository) : super(AddExamInitialState());
 
   int currentStep = 0;
-  AddExamBody addExamBody = AddExamBody();
+  AddExamBody addExamBody = AddExamBody(questions: []);
 
   void setCurrentStep(int index) {
     currentStep = index;
@@ -26,8 +27,26 @@ class AddExamCubit extends Cubit<AddExamStates> {
     emit(SetValuesState());
   }
 
+  void addQuestion() {
+    addExamBody.questions.add(QuestionBody(answers: [""]));
+    emit(SetValuesState());
+  }
+
+  void addAnswer(int questionIndex) {
+    addExamBody.questions[questionIndex].answers.add("");
+    emit(SetValuesState());
+  }
+
+  void removeAnswer(int questionIndex, int answerIndex) {
+    print(answerIndex);
+    print(addExamBody.questions[questionIndex].answers);
+    print("*******************");
+    addExamBody.questions[questionIndex].answers.removeAt(answerIndex);
+    emit(SetValuesState());
+  }
+
   void resetValues() {
-    addExamBody = AddExamBody();
+    addExamBody = AddExamBody(questions: []);
     currentStep = 0;
   }
 

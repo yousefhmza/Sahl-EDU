@@ -14,6 +14,7 @@ class CustomTextField extends StatelessWidget {
   final int? minLines;
   final String? initialValue;
   final TextInputType? keyBoardType;
+  final Color? fillColor;
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
   final void Function()? onTap;
@@ -34,6 +35,7 @@ class CustomTextField extends StatelessWidget {
     this.keyBoardType,
     this.controller,
     this.formatters,
+    this.fillColor,
     this.onChanged,
     this.onTap,
     this.onSaved,
@@ -74,6 +76,7 @@ class CustomTextField extends StatelessWidget {
       ),
       decoration: InputDecoration(
         hintText: hintText,
+        fillColor: fillColor,
         prefixIcon: prefix != null ? Padding(padding: EdgeInsets.all(AppPadding.p8.w), child: prefix) : null,
         prefixIconConstraints: const BoxConstraints(minWidth: AppSize.s0, minHeight: AppSize.s0),
         suffixIcon: suffix != null ? Padding(padding: EdgeInsets.all(AppPadding.p8.w), child: suffix) : null,

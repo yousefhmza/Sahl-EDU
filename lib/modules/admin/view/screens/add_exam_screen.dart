@@ -33,11 +33,6 @@ class AddExamScreen extends StatelessWidget {
                           primary: AppColors.primary,
                           onSurface: AppColors.primary,
                         ),
-                    sliderTheme: const SliderThemeData(
-                      activeTickMarkColor: AppColors.transparent,
-                      inactiveTickMarkColor: AppColors.transparent,
-                      thumbColor: AppColors.white,
-                    ),
                   ),
                   child: BlocSelector<AddExamCubit, AddExamStates, int>(
                     selector: (addExamStates) => addExamCubit.currentStep,
@@ -56,7 +51,7 @@ class AddExamScreen extends StatelessWidget {
                             fontSize: FontSize.s12,
                             fontWeight: FontWeightManager.bold,
                           ),
-                          content: const AddExamStepOne(),
+                          content: AddExamStepOne(),
                           isActive: currentStep == 0,
                           state: currentStep > 0 ? StepState.complete : StepState.indexed,
                         ),

@@ -1,15 +1,29 @@
 class QuestionBody {
   String question;
   List<String> answers;
-  int correctAnswerIndex;
+  int? correctAnswerIndex;
 
   QuestionBody({
-    required this.question,
+    this.question = "",
     required this.answers,
-    required this.correctAnswerIndex,
+    this.correctAnswerIndex,
   });
 
+  void copyWith({
+    String? question,
+    List<String>? answers,
+    int? correctAnswerIndex,
+  }) {
+    this.question = question ?? this.question;
+    this.answers = answers ?? this.answers;
+    this.correctAnswerIndex = correctAnswerIndex ?? this.correctAnswerIndex;
+  }
+
   Map<String, dynamic> toJson() {
-    return {};
+    return {
+      "answers": answers,
+      "question": question,
+      "correct_answer": correctAnswerIndex,
+    };
   }
 }

@@ -54,4 +54,15 @@ class AppStrings {
   static const String stepOneValidator = "Please type exam name and choose its image !!";
   static const String exam = "Exam";
   static const String questions = "Questions";
+  static const String typeQuestion = "Type question here ...";
+  static const String correctAnswerNumber = "Correct answer number : ";
+  static const String addQuestion = "Add question";
+  static const String addAnswer = "Add answer";
+  static const String answers = "Answers";
+  static const String pleaseAddQuestions = "Please add some questions !!";
+  static const String pleaseAddQuestion = "Please add question for the last item !!";
+  static const String pleaseChooseCorrectAnswer = "Please choose a valid correct answer for the last item !!";
+  static const String pleaseAddAnswers = "Please add more than one answer for the last item !!";
+  static const String pleaseAddAnswer = "Please add answer in the last field first before adding new one";
+  static const String cantDeleteAnswer = "You can't delete the only available two answers";
 }
